@@ -22,8 +22,10 @@ class CryptoService {
         const hex = hash.digest('hex');
         process.stdout.write(hex)
         process.stdout.write(EOL)
-        this.loggerService.logDirectory(this.fileService.getCurrentDirectory())
+
       })
+
+      readable.on('end', () => this.loggerService.logDirectory(this.fileService.getCurrentDirectory()))
 
       readable.on("error", (err) => this.loggerService.log(err.message))
     } catch (e) {
