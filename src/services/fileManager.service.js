@@ -1,5 +1,3 @@
-import zipService from "./zip.service.js";
-
 export class FileManagerService {
   filesService
   loggerService

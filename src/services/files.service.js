@@ -1,4 +1,4 @@
-import {readdir, rename, rm} from "fs/promises";
+import {readdir, rm} from "fs/promises";
 import path from "path";
 import {createReadStream, createWriteStream} from "fs";
 import {EOL} from "os";

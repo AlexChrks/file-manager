@@ -1,4 +1,4 @@
-import { EOL, cpus, platform, homedir, userInfo, arch } from 'os'
+import { EOL, cpus, homedir, userInfo, arch } from 'os'
 
 export class OsService {
   loggerService

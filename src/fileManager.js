@@ -1,18 +1,12 @@
 import {LoggerService} from "./services/logger.service.js";
 import {FileManagerService} from "./services/fileManager.service.js";
 import {getUsername} from "./helpers/getUsername.js";
-import { createReadStream, createWriteStream } from 'fs'
-import { readdir, rm } from 'fs/promises'
-import {fileURLToPath} from "url";
-import path from "path";
+import { rm } from 'fs/promises'
 import { homedir } from 'os'
 import {FilesService} from "./services/files.service.js";
 import OsService from "./services/os.service.js";
 import CryptoService from "./services/crypto.service.js";
 import ZipService from "./services/zip.service.js";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 
 const initFileManager = async () => {
   const logger = new LoggerService(getUsername())
@@ -83,12 +77,6 @@ const initFileManager = async () => {
       case 'decompress':
         await fileManagerService.decompress(arg1, arg2)
         break
-
-      case 'rs':
-        await filesService.changeDirectory('/Applications/RSSchool')
-        logger.logDirectory(filesService.getCurrentDirectory())
-        break
-
 
       case '.exit':
         logger.logByeMessage()
